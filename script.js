@@ -80,16 +80,16 @@ var focusApp = {
         this.state.gameState = 'playing';
         this.state.duration = +this.$durationInput.value * 60 * 1000;
         this.state.beepCount = Math.floor( 
-            Math.random() * (+this.$durationInput.value) + Math.round(+this.$durationInput.value*2) 
+            Math.random() * (+this.$durationInput.value) + Math.round(+this.$durationInput.value*1.2) 
         );
         
         for (let i = 0; i < this.state.beepCount; i++) {
             const beep = i === 0 
                 ? Math.floor( Math.random() * ((+this.state.duration * 0.3333) - 5000) + 5000 )
                 : Math.floor( 
-                    Math.random() * (this.state.duration - this.state.beepTimes[i-1]) + (this.state.beepTimes[i-1]) 
+                    Math.random() * (this.state.duration - this.state.beepTimes[i-1]+3000) + (this.state.beepTimes[i-1])
                 );
-            this.state.beepTimes.push( beep );
+            if ( beep < this.state.duration) this.state.beepTimes.push( beep );
         }
         
         this.state.beepTimes.forEach( beep => {
@@ -166,7 +166,7 @@ var focusApp = {
         // clearTimeout( this.state.reactionInterval );
         this.state.reactionInterval = setInterval( () => {
             this.state.reactionMs += 1;
-            console.log( this.state.reactionMs );
+            // console.log( this.state.reactionMs );
         }, 10);
         setTimeout( () => {
             clearInterval( this.state.reactionInterval );
