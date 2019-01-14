@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Focus Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="wrap">
+        <h1>Stay Present</h1>
+        <div class="instructions-wrap">
+            <h3>Instructions:</h3> 
+            <ol>
+                <li>Set your preferred duration of the game in minutes.</li>
+                <li>Click Start to begin the game. Leave the cursor over the button, and keep your finger on the click button.</li>
+                <li>Close your eyes and pay attention to hear the beep. It will sound a random number of times, at random moments. (click <a class="play-demo" href="#" data-file="./Beep_Short.mp3">here</a> to listen to demo)</li>
+                <li>Click the button as soon as you can after each beep. If you fail to click within 1 second, the click for that beep will be null.</li>
+                <li>The siren sound will indicate the end of the game (click <a class="play-demo" href="#" data-file="./Emergency_Siren_Short_Burst.mp3" href="#">here</a> to listen to demo), at which point you can see your results.</li>
+            </ol>
+        </div>
+
+        <div id="game-form">
+            <strong>Duration:</strong> <input id="duration" type="number" value="1"> Minutes
+            <p><button id="action-btn">Start</button></p>
+            <p>Running time: 
+                <span id="min-count">00</span>:<span id="sec-count">00</span>
+            </p>
+        </div>
+
+        <div id="stats">
+            <h3>Results</h3>
+            <ul id="stats-list"></ul>
+        </div>
+
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
